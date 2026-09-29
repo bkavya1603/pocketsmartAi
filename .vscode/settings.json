@@ -55,6 +55,18 @@
         "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\"; git status --short --branch; git log -1 --oneline; git remote -v; git ls-remote --heads origin main$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; \\.\\\\\\.venv\\\\Scripts\\\\python -m uvicorn app\\.main:app --host 127\\.0\\.0\\.1 --port 8000$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; \\.\\\\\\.venv\\\\Scripts\\\\python -c \"import sqlalchemy; print\\(sqlalchemy\\.__version__\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; Get-ChildItem -Path \\.\\\\\\.venv\\\\Lib\\\\site-packages\\\\sqlalchemy -Recurse -Filter \\*\\.pyd \\| Rename-Item -NewName \\{ \"\\$\\(\\$_\\.Name\\)\\.blocked\" \\}; \\.\\\\\\.venv\\\\Scripts\\\\python -c \"import sqlalchemy; print\\('SQLAlchemy pure-Python fallback loaded:', sqlalchemy\\.__version__\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }
