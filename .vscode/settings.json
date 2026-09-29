@@ -1,0 +1,60 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\"; npx --yes create-vite@latest \\. --no-interactive --template react$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\"; npx --yes create-vite@latest frontend --no-interactive --template react$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\frontend\"; npm install; npm install lucide-react recharts$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; python --version; python -m venv \\.venv; \\.\\\\\\.venv\\\\Scripts\\\\python -m pip install -r requirements\\.txt$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; \\.\\\\\\.venv\\\\Scripts\\\\python -m compileall -q app; \\.\\\\\\.venv\\\\Scripts\\\\python -c \"from fastapi\\.testclient import TestClient; from app\\.main import app; c=TestClient\\(app\\); c\\.__enter__\\(\\); r=c\\.post\\('/api/auth/login', json=\\{'email':'demo@pocketsmart\\.local','password':'PocketSmart123!'\\}\\); assert r\\.status_code==200, r\\.text; h=\\{'Authorization':'Bearer '\\+r\\.json\\(\\)\\['access_token'\\]\\}; rows=c\\.get\\('/api/transactions',headers=h\\); assert rows\\.status_code==200 and len\\(rows\\.json\\(\\)\\)>=10, rows\\.text; t=c\\.post\\('/api/transactions',headers=h,json=\\{'type':'Expense','amount':123,'category':'Food','description':'API smoke check','date':'2026-09-28'\\}\\); assert t\\.status_code==201, t\\.text; assert c\\.get\\('/api/transactions',headers=h\\)\\.json\\(\\)\\[0\\]\\['id'\\]==t\\.json\\(\\)\\['id'\\]; invalid=c\\.post\\('/api/transactions',headers=h,json=\\{'type':'Expense','amount':-1,'category':'Food','description':'invalid','date':'2026-09-28'\\}\\); assert invalid\\.status_code==422, invalid\\.text; other=c\\.post\\('/api/auth/signup',json=\\{'name':'Test User','email':'pocketsmart-smoke@example\\.com','password':'StrongPass123'\\}\\); assert other\\.status_code==201, other\\.text; other_h=\\{'Authorization':'Bearer '\\+other\\.json\\(\\)\\['access_token'\\]\\}; assert c\\.get\\('/api/transactions',headers=other_h\\)\\.json\\(\\)==\\[\\]; assert c\\.get\\('/api/transactions'\\)\\.status_code==401; print\\('API smoke tests passed: demo auth, seeded data, create, validation, account isolation, and auth guard\\.'\\); c\\.__exit__\\(None,None,None\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; \\.\\\\\\.venv\\\\Scripts\\\\python -m compileall -q app; \\.\\\\\\.venv\\\\Scripts\\\\python -c \"from fastapi\\.testclient import TestClient; from app\\.main import app; c=TestClient\\(app\\); c\\.__enter__\\(\\); r=c\\.post\\('/api/auth/login', json=\\{'email':'demo@pocketsmart\\.com','password':'PocketSmart123!'\\}\\); assert r\\.status_code==200, r\\.text; h=\\{'Authorization':'Bearer '\\+r\\.json\\(\\)\\['access_token'\\]\\}; rows=c\\.get\\('/api/transactions',headers=h\\); assert rows\\.status_code==200 and len\\(rows\\.json\\(\\)\\)>=10, rows\\.text; t=c\\.post\\('/api/transactions',headers=h,json=\\{'type':'Expense','amount':123,'category':'Food','description':'API smoke check','date':'2026-09-28'\\}\\); assert t\\.status_code==201, t\\.text; assert t\\.json\\(\\) in c\\.get\\('/api/transactions',headers=h\\)\\.json\\(\\); invalid=c\\.post\\('/api/transactions',headers=h,json=\\{'type':'Expense','amount':-1,'category':'Food','description':'invalid','date':'2026-09-28'\\}\\); assert invalid\\.status_code==422, invalid\\.text; other=c\\.post\\('/api/auth/signup',json=\\{'name':'Test User','email':'pocketsmart-smoke@example\\.com','password':'StrongPass123'\\}\\); assert other\\.status_code==201, other\\.text; other_h=\\{'Authorization':'Bearer '\\+other\\.json\\(\\)\\['access_token'\\]\\}; assert c\\.get\\('/api/transactions',headers=other_h\\)\\.json\\(\\)==\\[\\]; assert c\\.get\\('/api/transactions'\\)\\.status_code==401; print\\('API smoke tests passed: demo auth, seeded data, create, validation, account isolation, and auth guard\\.'\\); c\\.__exit__\\(None,None,None\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\frontend\"; npm run build$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; \\.\\\\\\.venv\\\\Scripts\\\\python -m unittest discover -s tests -v$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\frontend\"; npm run lint$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; \\.\\\\\\.venv\\\\Scripts\\\\python -m uvicorn app\\.main:app --reload --host 127\\.0\\.0\\.1 --port 8000$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; \\.\\\\\\.venv\\\\Scripts\\\\python -c \"import httpx; r=httpx\\.options\\('http://127\\.0\\.0\\.1:8000/api/auth/login',headers=\\{'Origin':'http://127\\.0\\.0\\.1:5173','Access-Control-Request-Method':'POST','Access-Control-Request-Headers':'content-type'\\}\\); print\\(r\\.status_code, r\\.headers\\.get\\('access-control-allow-origin'\\)\\); assert r\\.headers\\.get\\('access-control-allow-origin'\\)=='http://127\\.0\\.0\\.1:5173'\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; \\.\\\\\\.venv\\\\Scripts\\\\python -c \"from app\\.database import SessionLocal; from app\\.models import Budget, Expense, Income, Recommendation, User; db=SessionLocal\\(\\); demo=db\\.query\\(User\\)\\.filter\\(User\\.email=='demo@pocketsmart\\.com'\\)\\.first\\(\\); smoke=db\\.query\\(User\\)\\.filter\\(User\\.email=='pocketsmart-smoke@example\\.com'\\)\\.first\\(\\); removed=0; if_demo=bool\\(demo\\); removed \\+= db\\.query\\(Expense\\)\\.filter\\(Expense\\.user_id==demo\\.id, Expense\\.description=='API smoke check'\\)\\.delete\\(synchronize_session=False\\) if demo else 0; if smoke: db\\.query\\(Income\\)\\.filter\\(Income\\.user_id==smoke\\.id\\)\\.delete\\(synchronize_session=False\\); db\\.query\\(Expense\\)\\.filter\\(Expense\\.user_id==smoke\\.id\\)\\.delete\\(synchronize_session=False\\); db\\.query\\(Budget\\)\\.filter\\(Budget\\.user_id==smoke\\.id\\)\\.delete\\(synchronize_session=False\\); db\\.query\\(Recommendation\\)\\.filter\\(Recommendation\\.user_id==smoke\\.id\\)\\.delete\\(synchronize_session=False\\); db\\.delete\\(smoke\\); db\\.commit\\(\\); db\\.close\\(\\); print\\('Removed temporary smoke-test records:', removed \\+ \\(1 if smoke else 0\\)\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\\\\backend\"; \\.\\\\\\.venv\\\\Scripts\\\\python -c \"from app\\.database import SessionLocal; from app\\.models import Budget, Expense, Income, Recommendation, User; db=SessionLocal\\(\\); demo=db\\.query\\(User\\)\\.filter\\(User\\.email=='demo@pocketsmart\\.com'\\)\\.first\\(\\); smoke=db\\.query\\(User\\)\\.filter\\(User\\.email=='pocketsmart-smoke@example\\.com'\\)\\.first\\(\\); demo_id=demo\\.id if demo else -1; smoke_id=smoke\\.id if smoke else -1; removed=db\\.query\\(Expense\\)\\.filter\\(Expense\\.user_id==demo_id, Expense\\.description=='API smoke check'\\)\\.delete\\(synchronize_session=False\\); db\\.query\\(Income\\)\\.filter\\(Income\\.user_id==smoke_id\\)\\.delete\\(synchronize_session=False\\); db\\.query\\(Expense\\)\\.filter\\(Expense\\.user_id==smoke_id\\)\\.delete\\(synchronize_session=False\\); db\\.query\\(Budget\\)\\.filter\\(Budget\\.user_id==smoke_id\\)\\.delete\\(synchronize_session=False\\); db\\.query\\(Recommendation\\)\\.filter\\(Recommendation\\.user_id==smoke_id\\)\\.delete\\(synchronize_session=False\\); db\\.query\\(User\\)\\.filter\\(User\\.id==smoke_id\\)\\.delete\\(synchronize_session=False\\); db\\.commit\\(\\); db\\.close\\(\\); print\\('Removed temporary smoke-test records:', removed \\+ \\(1 if smoke else 0\\)\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location \"c:\\\\Users\\\\Dhanu\\\\Downloads\\\\NM Project\"; git status --short --branch; git log -1 --oneline; git remote -v; git ls-remote --heads origin main$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
