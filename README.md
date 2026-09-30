@@ -48,7 +48,7 @@ Before deployment, replace `SECRET_KEY` in `backend/.env` with a long random val
 .\.venv\Scripts\python -m uvicorn app.main:app --reload
 ```
 
-The API is at `http://localhost:8000`; interactive endpoint documentation is at `http://localhost:8000/docs`. SQLite creates `backend/pocketsmart.db` on first launch and seeds the demo account.
+The API is at `http://127.0.0.1:8000`; interactive endpoint documentation is at `http://127.0.0.1:8000/docs`. SQLite creates `backend/pocketsmart.db` on first launch and seeds the demo account.
 
 ### 2. Start the frontend
 

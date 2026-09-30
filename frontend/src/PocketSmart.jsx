@@ -12,7 +12,7 @@ import {
 } from 'recharts'
 import './PocketSmart.css'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
 const categories = ['Food', 'Transport', 'Education', 'Shopping', 'Bills', 'Entertainment', 'Healthcare', 'Others']
 const colors = ['#ed745b', '#e7a446', '#5986d7', '#9771cb', '#55a38c', '#d8789a', '#54a8b8', '#8a9691']
 const navItems = [
@@ -273,7 +273,10 @@ async function apiRequest(path, method = 'GET', body) {
   const response = await fetch(`${API_URL}${path}`, { method, headers, ...(body ? { body: JSON.stringify(body) } : {}) })
   const data = response.status === 204 ? {} : await response.json().catch(() => ({}))
   if (!response.ok) {
-    const error = new Error(data.detail || 'Request failed. Please try again.')
+    const detail = Array.isArray(data.detail)
+      ? data.detail.map((issue) => `${issue.loc?.at(-1) || 'Request'}: ${issue.msg}`).join(' ')
+      : data.detail
+    const error = new Error(typeof detail === 'string' ? detail : 'Request failed. Please try again.')
     error.status = response.status
     throw error
   }
