@@ -137,3 +137,4 @@ The API tests use a temporary in-memory SQLite database and cover sign-up, authe
 Build the frontend with `npm run build` in `frontend` and publish `frontend/dist` to a static host. Deploy the FastAPI app as an ASGI service with `uvicorn app.main:app --host 0.0.0.0 --port $PORT` from `backend`. Set `VITE_API_URL` to the deployed API before building, and set `FRONTEND_ORIGINS` to the exact deployed frontend origin.
 
 SQLite is suitable for local development and a single-instance demonstration. For a public multi-instance deployment, use PostgreSQL, persistent managed storage, HTTPS, a strong unique `SECRET_KEY`, backups, database migrations, and request rate limits. Never commit `.env` files or expose AI credentials in client code.git
+# pocketsmartAi
