@@ -173,7 +173,14 @@ function App() {
       setAuthError('')
       showToast(authMode === 'login' ? 'Welcome back.' : 'Your account is ready.')
       setPage('Overview')
-    } catch (error) { setAuthError(error.message || 'Could not connect to the finance service.') }
+    } catch (error) {
+      if (authMode === 'signup' && error.status === 409) {
+        setAuthMode('login')
+        setAuthError('This email already has an account. Sign in instead.')
+      } else {
+        setAuthError(error.message || 'Could not connect to the finance service.')
+      }
+    }
     finally { setBusy(false) }
   }
   const logOut = () => {
